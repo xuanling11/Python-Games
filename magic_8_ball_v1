@@ -1,0 +1,147 @@
+# The Complete Magic 8 Ball:
+
+
+
+# Import the random module
+import random
+
+# The possible numbers are between 0 through 21 inclusive
+# (that means 0, 1, 2, 3, 4, ... 21)
+# and each number should translate to a fortune
+# A standard Magic 8 Ball has twenty possible answers, 
+# including ten affirmative answers, five non-committal answers 
+# , and five negative answers.
+# Here are following:
+
+# Ten affirmative answers:
+# 0 - It is certain!
+# 1 - It is decidedly so!
+# 2 - Without a doubt!
+# 3 - Yes definitely!
+# 4 - You may rely on it...
+# 5 - As I see it, yes!
+# 6 - Most likely...
+# 7 - Outlook good!
+# 8 - Yes!
+# 9 - Signs point to yes...
+# 10 - As I see it, yes!
+# 11 - Most likely...
+
+# Five non-committal answers
+# 12 - Reply hazy, try again!
+# 13 - Ask again later...
+# 14 - Better not tell you now!
+# 15 - Cannot predict now!
+# 16 - Concentrate and ask again!
+
+# Five negative answers
+# 17 - Don't count on it!
+# 18 - My reply is no.
+# 19 - My sources say no.
+# 20 - Outlook not so good...
+# 21 - Very doubtful!
+
+#
+# If somehow the function gets a number other than those 8
+# it should send back a string saying that
+# something was wrong with the input.
+
+def number_to_fortune(number):
+    # Fill in your code here.
+    # Use an if...elif...else statement
+    # to check each of the numbers between 0 and 21
+    # and return the fortune as a string.
+    
+    if number == 0:
+        return "It is certain!"
+    elif number == 1:
+        return "It is decidedly so!"
+    elif number == 2:
+        return "Without a doubt!"
+    elif number == 3:
+        return "Yes definitely!"
+    elif number == 4:
+        return "You may rely on it..."
+    elif number == 5:
+        return "As I see it, yes!"
+    elif number == 6:
+        return "Most likely..."
+    elif number == 7:
+        return "Outlook good!"
+    elif number == 8:
+        return "Yes!"
+    elif number == 9:
+        return "Signs point to yes..."
+    elif number == 10:
+        return "As I see it, yes!"
+    elif number == 11:
+        return "Most likely..."
+    elif number == 12:
+        return "Reply hazy, try again!"
+    elif number == 13:
+        return "Ask again later..."
+    elif number == 14:
+        return "Better not tell you now!"
+    elif number == 15:
+        return "Cannot predict now!"
+    elif number == 16:
+        return "Concentrate and ask again!"
+    elif number == 17:
+        return "Don't count on it!"
+    elif number == 18:
+        return "My reply is no."
+    elif number == 19:
+        return "My sources say no."
+    elif number == 20:
+        return "Outlook not so good..."
+    elif number == 21:
+        return "Very doubtful!"
+    else:
+        return "Something was wrong with my input."
+       
+
+# Print out a line saying the liquid swirls and a reply comes into view
+# And print what the fortune was
+def mystical_octosphere(question):
+    # Fill in your code below
+    
+    # Print a line including the original 
+    # question to the console.    
+    print ("Your question was... " + input(question))
+
+    # Print the line "You shake the mystical octosphere."    
+    print ("You shake the magic 8 ball.")
+    
+    # Use randrange to put a random number between 0 and 7 
+    # into a variable called answer_number
+    answer_number = random.randrange(0, 21)
+    
+    # Use the helper function to translate
+    # the number you just randomly selected
+    # into a fortune, and store it in a
+    # variable called answer_fortune
+    answer_fortune = number_to_fortune(answer_number)
+
+    # Build suspense by printing a line that says
+    # The cloudy liquid swirls, and a reply comes into view...
+    print ("The cloudy liquid swirls, and a reply comes into view...")
+    
+    # Print a line that says 
+    # The mystical octosphere says...
+    # and the fortune you put into answer_fortune
+    print ("The magic 8 ball says... " + answer_fortune)   
+
+    # Print a blank line
+    print ()
+    
+    
+    # Make sure all your code for the main function
+    # is indented by at least four spaces
+    # ("At least" means it can be more than four but not less.)    
+
+# These lines runs your main function!
+# You can change the questions if you wish.
+# Only yes-or-no style questions will make sense.
+mystical_octosphere("Example: Will I get rich?")
+
+#ref: https://py3.codeskulptor.org/#user307_GebYqauWvlCEfNj.py
