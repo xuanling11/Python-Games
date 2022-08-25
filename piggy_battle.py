@@ -15,6 +15,22 @@ class Piggy:
         # Printing a piggy will tell you its name, its type, its level and how much health it has remaining
         return "This level {level} {name} has {health} hit points remaining. They are a {type} type Piggy".format(level = self.level, name = self.name, health=self.health, type = self.type)
     
+    def revive(self):
+        # Reviving a piggy will flip it's status to False
+        self.is_knocked_out = False
+        # A revived piggy can't have 0 health. This is a safety precaution. revive() should only be called if the piggy was given some health, but if it somehow has no health, its health gets set to 1.
+        if self.health == 0:
+            self.health = 1
+        print("{name} was revived!".format(name = self.name))
+
+    def knock_out(self):
+        # Knocking out a piggy will flip its status to True.
+        self.is_knocked_out = True
+        # A knocked out piggy can't have any health. This is a safety precaution. knock_out() should only be called if heath was set to 0, but if somehow the piggy had health left, it gets set to 0.
+        if self.health != 0:
+            self.health = 0
+        print("{name} was knocked out!".format(name = self.name))
+    
     def lose_health(self, amount):
         # Deducts heath from a piggy and prints the current health reamining
         self.health -= amount
@@ -40,20 +56,22 @@ class Piggy:
         if self.is_knocked_out:
             print("{name} can't attack because it is knocked out!".format(name = self.name))
         #ineffective attack
-        if (self.type == "Fire" and other_piggy.type == "Water") or (self.type == "Water" and other_piggy.type == "Wind") or (self.type == "Fire" and other_piggy.type == "Ghost"):
+        elif (self.type == "Fire" and other_piggy.type == "Water") or (self.type == "Water" and other_piggy.type == "Wind") or (self.type == "Fire" and other_piggy.type == "Ghost"):
             print("{my_name} attacked {other_name} for {damage} damage.".format(my_name = self.name, other_name = other_piggy.name, damage = round(self.level * 0.5)))
             print("It's not very effective")
             other_piggy.lose_health(round(self.level * 0.5))
         #effective attack
-        if (self.type == "Ghost" and other_piggy.type == "Water") or (self.type == "Ghost" and other_piggy.type == "Fire"):
+        elif (self.type == "Ghost" and other_piggy.type == "Water") or (self.type == "Ghost" and other_piggy.type == "Fire"):
             print("{my_name} attacked {other_name} for {damage} damage.".format(my_name = self.name, other_name = other_piggy.name, damage = round(self.level * 5)))
             print("It's very effective")
             other_piggy.lose_health(round(self.level * 5))
         #no advantage
-        if (self.type == other_piggy.type):
+        elif (self.type == other_piggy.type):
             print("{my_name} attacked {other_name} for {damage} damage.".format(my_name = self.name, other_name = other_piggy.name, damage = self.level))
             other_piggy.lose_health(self.level)
-    
+        else:
+            print("{my_name} attacked {other_name} for {damage} damage.".format(my_name = self.name, other_name = other_piggy.name, damage = self.level))
+            other_piggy.lose_health(self.level)
 #Piggy()
 # Five piggies are made with different levels. (If no level is given, it is level 5)
 def select_pig(number):
@@ -101,20 +119,21 @@ print("Hi, " + str(trainer_two_name) + "! Let's pick a Piggy for you! " + str(tr
 print()
 print("Let's get battle!")
 
-trainer_one_fight = input("Player one: This is your term to fight! Please select your strategy! a: Fight  b:Get Health")
+#start fighting
+#player one first
+trainer_one_fight = input("Player one: This is your term to fight! Please select your strategy! a: Fight  b:Get Health") 
+fight(trainer_one_fight)
 
-one_fight_two = fight(trainer_one_fight)
-print(one_fight_two)
-
+#player two second
 trainer_two_fight = input("Player two: This is your term to fight! Please select your strategy! a: Fight  b:Get Health")
 
-two_fight_one = fight1(trainer_two_fight)
-
 print()
-print(two_fight_one)
+fight1(trainer_two_fight)
 
 
-https://py3.codeskulptor.org/#user307_hF59lEmnPN_9.py
+#https://py3.codeskulptor.org/#user307_hF59lEmnPN_12.py
+
+
 
 
 
