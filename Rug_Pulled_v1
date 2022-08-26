@@ -16,34 +16,38 @@ def number_to_fortune(number):
          
     
 def rug_pull(name):
+    #initial money
     total = 100
+    
     print("Welcome to the game of Rug Pulled! Please enter your name!")
-    print ("Hi " + input(name) + ", Let's start the game!")
-
+    print("Hi " + input(name) + ", Let's start the game!")
+    
     choice = input("You have initial $100!" + '\n' + "Choose 1: invested your fund, or Choose 2: rug pull investors.")
     
-    #loop asking choices
+    #loop asking choices 1 or 2
     if choice == "1": 
         print ("You have initial $100, please select your choices: " + choice)
     elif choice == "2":
-        print ("You have initial $100, please select your choices: " + choice)
+        print ("You rug pull investors: $" + str(total) + " !")  
     else: 
         while choice != "1" and choice != "2": 
             choice = input("Please choose 1 or 2! ")
         else: 
             print ("You have initial $100, please select your choices: " + choice)
+            
     
+    #calculate earnings
     while total != 0:
         answer_number = random.randrange(0, 15)
         answer_fortune = number_to_fortune(answer_number)
         print ("Your NFTs project updates... " + answer_fortune) 
         total += 10
         choice = input("Your total funds are " + str(total) + '\n' + "Choose 1: invested your fund, or Choose 2: rug pull investors.")
-        print (choice) 
-    
+        print("Your total funds are " + str(total)) 
+       
     
 #tester
 rug_pull("Input your name: ")
 
+#https://py3.codeskulptor.org/#user307_ANic6ypR95LBsxt_25.py
 
-#https://py3.codeskulptor.org/#user307_ANic6ypR95LBsxt_9.py
