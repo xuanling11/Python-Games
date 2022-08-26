@@ -30,7 +30,7 @@ def rug_pull(name):
         
         #calculate earnings
         while total >= 100:
-            answer_number = random.randrange(0, 15) #adjust possibility
+            answer_number = random.randrange(0, 10) #adjust possibility
             answer_fortune = number_to_fortune(answer_number)
             #meg_answer_fortune = print ("Your NFTs project updates... " + answer_fortune) 
             #return meg_answer_fortune
@@ -70,4 +70,4 @@ def rug_pull(name):
 rug_pull("Input your name: ")
 
 
-#https://py3.codeskulptor.org/#user307_ANic6ypR95LBsxt_33.py
+#https://py3.codeskulptor.org/#user307_ANic6ypR95LBsxt_34.py
