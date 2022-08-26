@@ -2,7 +2,7 @@
 
 # Import the random module
 import random
-
+import sys
 
 def number_to_fortune(number):
     if number == 0:
@@ -27,27 +27,47 @@ def rug_pull(name):
     #loop asking choices 1 or 2
     if choice == "1": 
         print ("You have initial $100, please select your choices: " + choice)
+        
+        #calculate earnings
+        while total >= 100:
+            answer_number = random.randrange(0, 15) #adjust possibility
+            answer_fortune = number_to_fortune(answer_number)
+            #meg_answer_fortune = print ("Your NFTs project updates... " + answer_fortune) 
+            #return meg_answer_fortune
+            print ("Your NFTs project updates... " + answer_fortune)
+            
+            
+            #Elon invest case triple
+            if answer_fortune == "Elon Musk just invested in your NFTs! You just triple your money!":
+                total = 3*total
+                print("Your total funds are $" + str(total)) 
+            #Cuban invest case bouble
+            elif answer_fortune == "Mark Cuban just invested in your NFTs! You just double your money!":
+                total = 2*total
+                print("Your total funds are $" + str(total))
+            elif answer_fortune == "Your NFTs just got hacked! You lost all your money!":
+                total = 0*total
+                meg_loss = print("Your total funds are $" + str(total))
+                return meg_loss
+            else:
+                total += 10
+                choice = input("Your total funds are $" + str(total) + '\n' + "Choose 1: invested your fund, or Choose 2: rug pull investors.")
+                print("Your total funds are $" + str(total))
+                
     elif choice == "2":
-        print ("You rug pull investors: $" + str(total) + " !")  
+        meg = print("You rug pull investors: $" + str(total) + "!")
+        return meg
+        
     else: 
         while choice != "1" and choice != "2": 
             choice = input("Please choose 1 or 2! ")
+            return choice
         else: 
-            print ("You have initial $100, please select your choices: " + choice)
-            
-    
-    #calculate earnings
-    while total != 0:
-        answer_number = random.randrange(0, 15)
-        answer_fortune = number_to_fortune(answer_number)
-        print ("Your NFTs project updates... " + answer_fortune) 
-        total += 10
-        choice = input("Your total funds are " + str(total) + '\n' + "Choose 1: invested your fund, or Choose 2: rug pull investors.")
-        print("Your total funds are " + str(total)) 
-       
+            meg1 = print ("You have initial $100, please select your choices: " + choice)
+            return meg1
     
 #tester
 rug_pull("Input your name: ")
 
-#https://py3.codeskulptor.org/#user307_ANic6ypR95LBsxt_25.py
 
+#https://py3.codeskulptor.org/#user307_ANic6ypR95LBsxt_33.py
