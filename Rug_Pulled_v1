@@ -38,26 +38,34 @@ def rug_pull(name):
             
             
             #Elon invest case triple
-            if answer_fortune == "Elon Musk just invested in your NFTs! You just triple your money!":
+            if answer_number == 1:
                 total = 3*total
-                print("Your total funds are $" + str(total)) 
+                print('\n' + "Your total funds are $" + str(total)) 
             #Cuban invest case bouble
-            elif answer_fortune == "Mark Cuban just invested in your NFTs! You just double your money!":
+            elif answer_number == 2:
                 total = 2*total
-                print("Your total funds are $" + str(total))
-            elif answer_fortune == "Your NFTs just got hacked! You lost all your money!":
+                print('\n' + "Your total funds are $" + str(total))
+            #Your project got hacked, funds go to zero
+            elif answer_number == 0:
                 total = 0*total
-                meg_loss = print("Your total funds are $" + str(total))
+                meg_loss = print('\n' + "Your total funds are $" + str(total))
                 return meg_loss
+            #investors continue pouring funds in
             else:
                 total += 10
-                choice = input("Your total funds are $" + str(total) + '\n' + "Choose 1: invested your fund, or Choose 2: rug pull investors.")
-                print("Your total funds are $" + str(total))
-                
+                choice = input('\n' + "Your total funds are $" + str(total) + '\n' + "Choose 1: invested your fund, or Choose 2: rug pull investors.")
+                if choice == "2":
+                    meg = print("You rug pull investors: $" + str(total) + "!")
+                    return meg
+                print('\n' +"Your total funds are $" + str(total))
+        
+    
+    #rug pulled investors    
     elif choice == "2":
         meg = print("You rug pull investors: $" + str(total) + "!")
         return meg
-        
+    
+    #choose beyond 1 and 2    
     else: 
         while choice != "1" and choice != "2": 
             choice = input("Please choose 1 or 2! ")
@@ -70,4 +78,4 @@ def rug_pull(name):
 rug_pull("Input your name: ")
 
 
-#https://py3.codeskulptor.org/#user307_ANic6ypR95LBsxt_34.py
+#https://py3.codeskulptor.org/#user307_ANic6ypR95LBsxt_49.py
