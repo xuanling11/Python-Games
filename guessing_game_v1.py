@@ -89,3 +89,6 @@ f.add_input("Enter your guess", input_guess, 100)
 # call new_game and start frame
 new_game()
 f.start()
+
+
+# test at https://py3.codeskulptor.org/#user307_4zMxv0Vhvq_0.py
