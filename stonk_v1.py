@@ -7,7 +7,7 @@ import random
 import math
 
 # initialize global variables used in your code
-num_range = 100
+num_range = 200
 secret_num = 0
 guesses_left = 7
 total = 0
@@ -46,16 +46,16 @@ def pump():
     global total
     # button that guess stock goes up
     pump = int(input("How much you think the price is $ "))
-    if 0<= pump <= 100:
-        if pump > secret_num:
-            earn_gain = pump-secret_num
+    if 0 < pump <= 100:
+        if pump < secret_num:
+            earn_gain = secret_num - pump
             guesses_left -= 1
             total += earn_gain
             print("You guess $", str(pump))
             print("You earn $", str(earn_gain))
             print("Your total $", str(total))
-        elif pump < secret_num:
-            earn_lose = secret_num-pump
+        elif pump > secret_num:
+            earn_lose = pump - secret_num
             guesses_left -= 1
             total -= earn_lose
             print("You guess $", str(pump))
@@ -68,10 +68,10 @@ def pump():
             print("You earn $0")
             print("Your total $", str(total))
         else:
-            print("\nInstruction: please pick a price of the crypto between $0-$100\n")
+            print("\nInstruction: please pick a price of the crypto between $1-$100\n")
             new_game() 
     else:
-        print("\nInstruction: please pick a price of the crypto between $0-$100\n")
+        print("\nInstruction: please pick a price of the crypto between $1-$100\n")
            
     new_game() 
     pass
@@ -81,16 +81,16 @@ def crash():
     global total
     # button that guess stock goes down
     crash = int(input("How much you think the price is $ "))
-    if 0<= crash <= 100:
-        if crash > secret_num:
-            earn_lose = crash - secret_num
+    if 0 < crash <= 100:
+        if crash < secret_num:
+            earn_lose = secret_num - crash 
             guesses_left -= 1
             total -= earn_lose
             print("You guess $", str(crash))
             print("You lose $", str(earn_lose))
             print("Your total $", str(total))
-        elif crash < secret_num:
-            earn_gain = secret_num - crash
+        elif crash > secret_num:
+            earn_gain = crash - secret_num
             guesses_left -= 1
             total += earn_gain
             print("You guess $", str(crash))
@@ -103,7 +103,7 @@ def crash():
             print("You earn $0")
             print("Your total $", str(total)) 
     else:
-        print("\nInstruction: please pick a price of the crypto between $0-$100\n")
+        print("\nInstruction: please pick a price of the crypto between $1-$100\n")
          
             
     new_game()
@@ -153,9 +153,10 @@ f.add_input("Enter your guess", input_guess, 100)
 
 # call new_game and start frame
 print ("Hello to the crypto trading game. Good luck!")
-print ("\nInstruction: please pick a price of the crypto between $0-$100\n")
+print ("\nInstruction: please pick a price of the crypto between $1-$100\n")
 print ("You can guess the price \n -up through Pump \n -down through Short \n -simply guess the stock price\n")
 new_game()
 f.start()
 
-#https://py3.codeskulptor.org/#user307_RDILfQ0hDY_12.py
+
+#https://py3.codeskulptor.org/#user307_RDILfQ0hDY_16.py
